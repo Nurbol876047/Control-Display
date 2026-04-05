@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living Painting | Hand-Tracked Interactive Art</title>
+    <meta name="description" content="An interactive web experience where a sketch comes to life with vibrant colors, tracked by your hand.">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Background Sketch -->
+        <div id="painting-container">
+            <img src="/sketch.png" id="sketch-img" alt="Sketch Painting">
+            <canvas id="reveal-canvas"></canvas>
+            <img src="/color.png" id="color-img" class="hidden" alt="Color Painting">
+        </div>
+
+        <!-- UI Overlay -->
+        <div id="ui-overlay">
+            <div id="status-card" class="glass">
+                <h1 id="title">Living Painting</h1>
+                <p id="instruction">Please allow camera access to begin</p>
+                <div id="loader" class="loader"></div>
+            </div>
+            <div id="debug-info" class="hidden">
+                 Hand: <span id="hand-status">Not Detected</span>
+            </div>
+        </div>
+
+        <!-- Hidden Webcam Video -->
+        <video id="webcam" autoplay playsinline class="hidden"></video>
+
+        <!-- SVG Displacement Filter -->
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <filter id="displacementFilter">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+        </svg>
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>

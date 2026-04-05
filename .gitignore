@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+dist/
+.DS_Store
+
+# Temporary Assets
+mask_*.png
+mask_life_*.png
+mask_sat.png
+mask_y_*.png
+*.log
+
+# Project specific
+!public/
+!public/color.png
+!public/sketch.png
+!public/life-layer.png
+!public/animation-map.png
