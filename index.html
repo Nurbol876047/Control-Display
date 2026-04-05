@@ -9,14 +9,11 @@
 </head>
 <body>
     <div id="app">
-        <!-- Background Sketch -->
         <div id="painting-container">
             <img src="/color.png" id="sketch-img" alt="Sketch Painting">
             <canvas id="reveal-canvas"></canvas>
             <img src="/color.png" id="color-img" class="hidden" alt="Color Painting">
         </div>
-
-        <!-- UI Overlay -->
         <div id="ui-overlay">
             <div id="status-card" class="glass">
                 <h1 id="title">Living Painting</h1>
@@ -24,14 +21,10 @@
                 <div id="loader" class="loader"></div>
             </div>
             <div id="debug-info" class="hidden">
-                 Hand: <span id="hand-status">Not Detected</span>
+                Hand: <span id="hand-status">Not Detected</span>
             </div>
         </div>
-
-        <!-- Hidden Webcam Video -->
         <video id="webcam" autoplay playsinline class="hidden"></video>
-
-        <!-- SVG Displacement Filter -->
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
             <filter id="displacementFilter">
                 <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" result="noise" />
@@ -39,6 +32,13 @@
             </filter>
         </svg>
     </div>
+    <script type="importmap">
+    {
+      "imports": {
+        "@mediapipe/tasks-vision": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/vision_bundle.js"
+      }
+    }
+    </script>
     <script type="module" src="/main.js"></script>
 </body>
 </html>
